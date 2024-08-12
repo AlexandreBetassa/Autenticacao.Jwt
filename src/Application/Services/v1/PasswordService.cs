@@ -1,4 +1,4 @@
-﻿using Autenticacao.Jwt.Domain.Interfaces.Services.v1;
+﻿using Autenticacao.Jwt.Domain.Interfaces.v1.Services;
 using Microsoft.AspNetCore.Identity;
 
 namespace Autenticacao.Jwt.Application.Services.v1

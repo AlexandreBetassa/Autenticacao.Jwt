@@ -1,8 +1,8 @@
 ﻿using Autenticacao.Jwt.Application.DTOs.v1;
 using Autenticacao.Jwt.CrossCutting.Configurations.v1;
 using Autenticacao.Jwt.Domain.Entities.v1;
-using Autenticacao.Jwt.Domain.Interfaces.Repositories;
-using Autenticacao.Jwt.Domain.Interfaces.Services.v1;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Repositories;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Services;
 using MediatR;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

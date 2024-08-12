@@ -1,5 +1,5 @@
 ﻿using Autenticacao.Jwt.CrossCutting.Configurations.v1;
-using Autenticacao.Jwt.Domain.Interfaces.Services.v1;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Services;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 

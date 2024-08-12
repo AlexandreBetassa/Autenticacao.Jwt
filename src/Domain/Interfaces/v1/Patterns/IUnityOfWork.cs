@@ -1,6 +1,6 @@
-﻿using Autenticacao.Jwt.Domain.Interfaces.Repositories;
+﻿using Autenticacao.Jwt.Domain.Interfaces.v1.Repositories;
 
-namespace Autenticacao.Jwt.Domain.Interfaces.Patterns
+namespace Autenticacao.Jwt.Domain.Interfaces.v1.Patterns
 {
     public interface IUnityOfWork : IDisposable
     {

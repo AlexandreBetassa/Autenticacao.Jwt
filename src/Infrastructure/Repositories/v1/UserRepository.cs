@@ -1,5 +1,5 @@
 ﻿using Autenticacao.Jwt.Domain.Entities.v1;
-using Autenticacao.Jwt.Domain.Interfaces.Repositories;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Repositories;
 using Dapper;
 using System.Data;
 

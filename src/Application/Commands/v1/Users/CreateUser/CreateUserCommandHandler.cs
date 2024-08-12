@@ -1,6 +1,6 @@
 ﻿using Autenticacao.Jwt.Domain.Entities.v1;
-using Autenticacao.Jwt.Domain.Interfaces.Patterns;
-using Autenticacao.Jwt.Domain.Interfaces.Services.v1;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Patterns;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Services;
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;

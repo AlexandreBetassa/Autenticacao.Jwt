@@ -1,4 +1,4 @@
-﻿using Autenticacao.Jwt.Domain.Interfaces.Patterns;
+﻿using Autenticacao.Jwt.Domain.Interfaces.v1.Patterns;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 

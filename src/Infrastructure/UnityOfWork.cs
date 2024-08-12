@@ -1,5 +1,5 @@
-﻿using Autenticacao.Jwt.Domain.Interfaces.Patterns;
-using Autenticacao.Jwt.Domain.Interfaces.Repositories;
+﻿using Autenticacao.Jwt.Domain.Interfaces.v1.Patterns;
+using Autenticacao.Jwt.Domain.Interfaces.v1.Repositories;
 using System.Data;
 
 namespace Autenticacao.Jwt.Infrastructure
