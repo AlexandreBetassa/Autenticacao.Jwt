@@ -31,4 +31,31 @@ Crie um container utilizando a CLI do Docker, executando o comando:
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=*SQLestudo2024" -p 14444:1433 --name sql-estudo --hostname sql-estudo -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
-### Abra o projeto c
+Você precisará também possuir o Sql Server Management Studio, ou outro gerenciados de banco de dados, para execução do script de criação do banco de dados e da tabela.
+No seu gerenciador de sua preferencia, execute o script de banco de dados, localizado na pasta "scripts" presente no repositório.
+
+ESTE PASSO É ESSENCIAL, CASO CONTRÁRIO, NÃO CONSEGUIRÁ CADASTRAR UM USUÁRIO
+
+### Execução do projeto
+Este projeto já possui seu Dockerfile, caso deseje executá-lo em um container. Porém poderá somente abrir o VisualStudio e executar o projeto normalmente pela ferramenta. 
+Caso opte, por executá-lo em um container Docker, acesse a pasta onde o arquivo Dockerfile se encontra e execute o seguinte comando para criar a imagem:
+
+```bash
+docker build . -t <seu_repositorio_docker>/<nome_projeto>:<versao_projeto>
+```
+
+Faça o push para seu repositório com o comando:
+
+```bash
+docker push <seu_repositorio_docker>/<nome_projeto>:<versao_projeto>
+```
+
+Em seguida:
+```bash
+docker run -p 8000:80 -n <nome_do_container> -d <seu_repositorio_docker>/<nome_projeto>:<versao_projeto>
+```
+
+Você poderá acessar o swagger, abrindo seu navegador e inserindo o endereço:
+
+```bash
+127.0.0.1:8000/swagger/index.html
