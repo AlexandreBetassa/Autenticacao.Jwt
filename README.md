@@ -1,7 +1,7 @@
 # Autenticacao JWT
 
 ## OBJETIVO DO PROJETO
-Este projeto tem como objetivo a prática do desenvolvimento de um projeto de autenticação, utilizando token JWT Bearer e armazenamento do mesmo em um redis. Com este projeto você cria um usuário informando, um Username, Email, Password e Role que posteriormente será utilizado para autenticação.
+Este projeto tem como objetivo a prática do desenvolvimento de um projeto de autenticação, utilizando token JWT Bearer e armazenamento do mesmo em um redis. Com este projeto você cria um usuário informando, um Username, Email, Password e Role que posteriormente será utilizado para autenticação.<p>
 A senha é salva de forma criptografada no banco, portanto, se esquecer a senha você não conseguirá recuperá-la acessando o banco de dados
 
 ## TECNOLOGIAS
