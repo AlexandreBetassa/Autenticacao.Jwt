@@ -7,19 +7,18 @@ namespace Autenticacao.Jwt.Controllers.v1
 {
     [Route("api/v1/authentication")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController<AuthController>
     {
-        private readonly IMediator _mediator;
-        public AuthController(IMediator mediator)
+        public AuthController(IMediator mediator, ILoggerFactory loggerFactory) 
+            : base(mediator, loggerFactory)
         {
-            _mediator = mediator;
         }
 
         [HttpPost("{typeUser}")]
         public async Task<IActionResult> GenerateToken([FromBody] GenerateTokenCommand request, RolesUserEnum typeUser)
         {
             request.TypeUser = typeUser;
-            var token = await _mediator.Send(request);
+            var token = await Mediator.Send(request);
 
             return Ok(token);
         }
