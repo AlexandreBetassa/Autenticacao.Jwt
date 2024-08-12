@@ -14,10 +14,9 @@ namespace Autenticacao.Jwt.Controllers.v1
         {
         }
 
-        [HttpPost("{typeUser}")]
-        public async Task<IActionResult> GenerateToken([FromBody] GenerateTokenCommand request, RolesUserEnum typeUser)
+        [HttpPost]
+        public async Task<IActionResult> GenerateToken([FromBody] GenerateTokenCommand request)
         {
-            request.TypeUser = typeUser;
             var token = await Mediator.Send(request);
 
             return Ok(token);
