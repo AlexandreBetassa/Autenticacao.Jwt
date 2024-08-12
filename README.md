@@ -28,7 +28,7 @@ Por motivos didáticos, foi executado um container do SqlServer no docker, para 
 Crie um container utilizando a CLI do Docker, executando o comando:
 
 ```bash
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=*SQLestudo2024" -p 14444:1433 --name sql-estudo --hostname sql-estudo -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=*SQLestudo2024" -p 1444:1433 --name sql-estudo --hostname sql-estudo -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 Você precisará também possuir o Sql Server Management Studio, ou outro gerenciados de banco de dados, para execução do script de criação do banco de dados e da tabela.
