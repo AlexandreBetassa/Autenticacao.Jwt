@@ -30,7 +30,7 @@ namespace Autenticacao.Jwt.Infrastructure.Repositories.v1
 
             parameters.Add("@EMAIL", email, DbType.AnsiString, ParameterDirection.Input,email.Length);
 
-            var query = $"SELECT * FROM AUTENTICACAO WHERE EMAIL = @EMAIL";
+            var query = $"SELECT NAME, PASSWORD, EMAIL, ROLE FROM AUTENTICACAO WHERE EMAIL = @EMAIL";
 
             return await _dbConnection.QueryFirstOrDefaultAsync<User>(query, parameters);
         }
