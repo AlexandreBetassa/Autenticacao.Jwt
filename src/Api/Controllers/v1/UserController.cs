@@ -21,14 +21,14 @@ namespace Autenticacao.Jwt.Controllers.v1
         [Authorize(Policy = AccessPolicies.Write)]
         public async Task<IActionResult> Get()
         {
-            return Ok(await Task.FromResult("Get write"));
+            return Ok(await Task.FromResult("Get some write"));
         }
 
         [HttpGet("getUser")]
         [Authorize(Policy = AccessPolicies.Read)]
         public async Task<IActionResult> GetUser()
         {
-            return Ok(await Task.FromResult("Get read"));
+            return Ok(await Task.FromResult("Get some read"));
         }
 
         [HttpPost]
