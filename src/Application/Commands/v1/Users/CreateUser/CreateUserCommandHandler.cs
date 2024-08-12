@@ -26,17 +26,12 @@ namespace Autenticacao.Jwt.Application.Commands.v1.Users.CreateUser
             {
                 Logger.LogInformation($"Inicio metodo {nameof(CreateUserCommandHandler)}.{nameof(Handle)}");
 
-                var user = new User
-                {
-                    Email = request.Email,
-                    Name = request.UserName,
-                    Role = request.Role.ToString()
-                };
+                var user = Mapper.Map<User>(request);
 
                 user.Password = _passwordServices.HashPassword(user, request.Password);
 
                 await UnityOfWork.BeginTransactionAsync();
-                await UnityOfWork.UserRepository.CreateUserAsync(user);
+                await UnityOfWork.UserRepository.CreateAsync(user);
                 await UnityOfWork.CommitAsync();
 
                 Logger.LogInformation($"Fim metodo {nameof(CreateUserCommandHandler)}.{nameof(Handle)}");

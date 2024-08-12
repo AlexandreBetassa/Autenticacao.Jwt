@@ -34,7 +34,7 @@ namespace Autenticacao.Jwt.Application.Commands.v1.GenerateToken
 
         public async Task<string> Handle(GenerateTokenCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetUser(request.Email);
+            var user = await _userRepository.GetByEmailAsync(request.Email);
 
             var isValidPassword = _passwordServices.VerifyPassword(user, user.Password, request.Password);
 
@@ -83,9 +83,9 @@ namespace Autenticacao.Jwt.Application.Commands.v1.GenerateToken
         private ClaimsIdentity GenerateClaims(User user)
         {
             var ci = new ClaimsIdentity();
-            ci.AddClaim(new Claim(ClaimTypes.Name, user.Name));
-            ci.AddClaim(new Claim(ClaimTypes.Email, user.Email));
-            ci.AddClaim(new Claim(ClaimTypes.Role, user.Role));
+            ci.AddClaim(new Claim("name", user.Name));
+            ci.AddClaim(new Claim("email", user.Email));
+            ci.AddClaim(new Claim("role", user.Role));
 
             return ci;
         }

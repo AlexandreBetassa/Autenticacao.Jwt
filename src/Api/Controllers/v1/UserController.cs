@@ -1,5 +1,7 @@
 ﻿using Autenticacao.Jwt.Application.Commands.v1.Users.CreateUser;
+using Autenticacao.Jwt.Application.Commands.v1.Users.PatchStatusUser;
 using Autenticacao.Jwt.Application.Constants.v1;
+using Autenticacao.Jwt.Application.Queries.v1.GetUser;
 using Autenticacao.Jwt.Filters.v1;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -17,27 +19,56 @@ namespace Autenticacao.Jwt.Controllers.v1
         {
         }
 
-        [HttpGet]
+        [HttpPatch("status")]
         [Authorize(Policy = AccessPolicies.Write)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> PatchAsync()
         {
-            return Ok(await Task.FromResult("Get some write"));
+            try
+            {
+                var userName = User?.Claims?.FirstOrDefault(c => c.Type == "name")?.Value;
+                await Mediator.Send(new PatchStatusUserCommand(userName));
+
+                return Created();
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
 
-        [HttpGet("getUser")]
+        [HttpGet]
         [Authorize(Policy = AccessPolicies.Read)]
-        public async Task<IActionResult> GetUser()
+        public async Task<IActionResult> GetAsync()
         {
-            return Ok(await Task.FromResult("Get some read"));
+            try
+            {
+                var userName = User?.Claims?.FirstOrDefault(c => c.Type == "name")?.Value;
+
+                var result = await Mediator.Send(new GetUserQuery(userName));
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(ex.Message);
+            }
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request)
+        public async Task<IActionResult> CreateUserAsync([FromBody] CreateUserCommand request)
         {
-            var result = await Mediator.Send(request);
+            try
+            {
+                await Mediator.Send(request);
 
-            return Ok(result);
+                return Created();
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
     }
 }

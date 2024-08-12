@@ -1,17 +1,11 @@
-﻿
-namespace Autenticacao.Jwt.Domain.Entities.v1
+﻿namespace Autenticacao.Jwt.Application.Queries.v1.GetUser
 {
-    public class User
+    public class GetUserQueryResponse
     {
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
         public bool Status { get; set; }
-
-        public void ChangeStatus()
-        {
-            Status = !Status;
-        }
     }
 }
